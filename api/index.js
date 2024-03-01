@@ -18,6 +18,9 @@ const app = express();
 const bcryptSalt = bcrypt.genSaltSync(10);
 const jwtSecret = "bsbsfbrnsftentwnnwnwn";
 
+// Serve static files from the 'dist' directory
+app.use(express.static(path.join(__dirname, '../client/dist')));
+
 app.use(express.json());
 app.use(cookieParser());
 app.use(
