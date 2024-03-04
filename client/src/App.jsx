@@ -20,7 +20,7 @@ import OrderSummary from './pages/OrderSummary'
 import PaymentSummary from './pages/PaymentSummary'
 import TicketPage from './pages/TicketPage'
 
-axios.defaults.baseURL = 'https://eventgo-1.onrender.com/';
+axios.defaults.baseURL = 'http://localhost:4000/';
 axios.defaults.withCredentials=true;
 
 function App() {

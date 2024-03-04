@@ -19,16 +19,14 @@ const bcryptSalt = bcrypt.genSaltSync(10);
 const jwtSecret = "bsbsfbrnsftentwnnwnwn";
 
 // Serve static files from the 'dist' directory
-app.use(express.static(path.join(__dirname, './dist')));
+// app.use(express.static(path.join(__dirname, './dist')));
 
 app.use(express.json());
 app.use(cookieParser());
-app.use(
-   cors({
-      credentials: true,
-      
-   })
-);
+app.use(cors({
+   credentials: true,
+   origin:'https://eventgo-1.onrender.com'
+}));
 
 mongoose.connect(process.env.MONGO_URL);
 
@@ -308,11 +306,11 @@ app.delete("/tickets/:id", async (req, res) => {
    }
 });
 
-app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public/index.html'));
-});
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, 'public/index.html'));
+// });
 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
